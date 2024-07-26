@@ -21,8 +21,8 @@ const NewPassword = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (input === "") {
-      setError("Enter your new password");
+    if (input.length < 6) {
+      setError("Password must be at least 6 characters long");
     } else {
       if (!token) {
         setError("Invalid reset token");
@@ -35,6 +35,7 @@ const NewPassword = () => {
         console.log("Password reset successful");
       } catch (error) {
         setError("You have already updated your password");
+        setInput("");
       }
     }
   }
@@ -46,6 +47,7 @@ const NewPassword = () => {
           <h1 className="text-3xl font-extrabold text-center text-gray-900">
             Password Reset Successful
           </h1>
+          <a href="exp://192.168.1.10:8081" className="block mt-4 text-center text-indigo-600 hover:text-indigo-500">Login</a>
         </div>
       </div>
     );
