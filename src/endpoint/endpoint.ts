@@ -3,7 +3,7 @@ import axios from "axios";
 export const resetPassword = async (token: string, newPassword: string) => {
   try {
     const response = await axios.post(
-      "https://agil-curn-backend.vercel.app/auth/reset-password",
+      `${process.env.API_PRODUCTION_URL}/auth/reset-password`,
       { token, newPassword }
     );
     console.log(response.data);
@@ -17,7 +17,7 @@ export const resetPassword = async (token: string, newPassword: string) => {
 export async function addMembers(email: string, projectName: string) {
   try {
     const response = await fetch(
-      `https://agil-curn-backend.vercel.app/auth/search-by-email?email=${email}&projectName=${projectName}`,
+      `${process.env.API_PRODUCTION_URL}/auth/search-by-email?email=${email}&projectName=${projectName}`,
       {
         method: "POST",
         headers: {
