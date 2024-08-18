@@ -3,7 +3,7 @@ import axios from "axios";
 export const resetPassword = async (token: string, newPassword: string) => {
   try {
     const response = await axios.post(
-      `${process.env.API_PRODUCTION_URL}/auth/reset-password`,
+      `https://agilcurn-backend.onrender.com/auth/reset-password`,
       { token, newPassword }
     );
     console.log(response.data);
