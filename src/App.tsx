@@ -1,12 +1,14 @@
-import NewPassword from "./NewPassword"
+import NewPassword from "./NewPassword";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-
   return (
-    <div>
-      <NewPassword/>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/reset-password" element={<NewPassword />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
